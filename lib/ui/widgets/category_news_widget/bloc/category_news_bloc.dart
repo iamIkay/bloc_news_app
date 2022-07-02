@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_bloc/repository/models/headline_news.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_event.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
 
 import '../../../../repository/news_repository.dart';
+import 'category_news_event.dart';
+import 'category_news_state.dart';
 
 class CategoryNewsBloc extends Bloc<CategoryNewsEvent, CategoryNewsState> {
   CategoryNewsBloc({required this.newsRepository})

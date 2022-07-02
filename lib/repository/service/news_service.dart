@@ -1,13 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:news_app_bloc/repository/models/headline_news.dart';
-import 'package:news_app_bloc/repository/models/news_category.dart';
-import 'package:news_app_bloc/repository/models/news_model.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
 
 class NewsService {
   NewsService(

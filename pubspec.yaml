@@ -39,6 +39,7 @@ dependencies:
   equatable: ^2.0.3
   http: ^0.13.4
   flutter_dotenv: ^5.0.2
+  intl: ^0.17.0
   
 
 dev_dependencies:

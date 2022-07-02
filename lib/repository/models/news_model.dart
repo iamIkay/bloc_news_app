@@ -5,22 +5,23 @@ part 'news_model.g.dart';
 @JsonSerializable(fieldRename: FieldRename.kebab)
 class Story {
   String? title;
-  String author;
-  String description;
+  String? author;
+  String? description;
+  Map<String, dynamic>? source;
   String? urlToImage;
-  DateTime publishedAt;
+  DateTime? publishedAt;
   String? content;
-  String articleUrl;
+  String? articleUrl;
 
   Story(
-      {
-        this.title,
+      {this.title,
       required this.description,
       required this.author,
       this.content,
+      this.source,
       required this.publishedAt,
       this.urlToImage,
-      required this.articleUrl});
+      this.articleUrl});
 
   factory Story.fromJson(Map<String, dynamic> json) => _$StoryFromJson(json);
 }

@@ -8,10 +8,11 @@ part of 'news_model.dart';
 
 Story _$StoryFromJson(Map<String, dynamic> json) => Story(
       title: json['title'] as String?,
-      description: json['description'] as String,
-      author: json['author'] as String,
+      description: json['description'] as String?,
+      author: json['author'] as String?,
       content: json['content'] as String?,
+      source: json['source'] as Map<String, dynamic>?,
       publishedAt: DateTime.parse(json['publishedAt'] as String),
       urlToImage: json['urlToImage'] as String?,
-      articleUrl: json['url'] as String,
+      articleUrl: json['url'] as String?,
     );

@@ -3,11 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:news_app_bloc/repository/news_repository.dart';
 import 'package:news_app_bloc/repository/service/news_service.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_bloc.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_event.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
-import 'ui/widgets/all_news.dart';
-import 'utils/app_bloc_observer.dart';
+import 'package:news_app_bloc/ui/widgets/category_news_widget/bloc/category_news_bloc.dart';
+import 'package:news_app_bloc/ui/widgets/category_news_widget/bloc/category_news_event.dart';
+import 'ui/widgets/category_news_widget/news_page.dart';
 import 'widgets/category_title.dart';
 import 'widgets/get_categories.dart';
 
@@ -62,7 +60,7 @@ class HomePage extends StatelessWidget {
                       GetCategories(),
                       SizedBox(height: 25.0),
                       CategoryTitle(),
-                      AllNewsView(),
+                      CategoryNewsPage(),
                     ]),
               ),
             ),

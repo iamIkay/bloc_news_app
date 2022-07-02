@@ -1,11 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/all_news_success.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_bloc.dart';
-import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
-import '../../repository/models/news_model.dart';
+import '../ui/widgets/category_news_widget/bloc/category_news_bloc.dart';
+import '../ui/widgets/category_news_widget/bloc/category_news_state.dart';
 
 class CategoryTitle extends StatelessWidget {
   const CategoryTitle({super.key});
