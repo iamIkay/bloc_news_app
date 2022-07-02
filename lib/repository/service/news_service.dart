@@ -4,9 +4,10 @@ import 'dart:io';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:news_app_bloc/repository/models/everything.dart';
+import 'package:news_app_bloc/repository/models/headline_news.dart';
 import 'package:news_app_bloc/repository/models/news_category.dart';
 import 'package:news_app_bloc/repository/models/news_model.dart';
+import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
 
 class NewsService {
   NewsService(
@@ -34,14 +35,14 @@ class NewsService {
     return Uri.parse('$baseUrl/$uri').replace(queryParameters: queryParameters);
   }
 
-  Future<Everything?> getAllNews() async {
+  Future<HeadlineNews?> getAllNews() async {
     final response = await _httpClient.get(getUri(uri: 'top-headlines'));
 
     var jsonData = jsonDecode(response.body);
 
     if (jsonData['status'] == "ok") {
       if (response.body.isNotEmpty) {
-        return Everything.fromJson(jsonData);
+        return HeadlineNews.fromJson(jsonData);
       } else {
         log("Empty Response");
       }
@@ -51,7 +52,22 @@ class NewsService {
     return null;
   }
 
-  Future<List<Story>>? getCategoryNews(NewsCategory category) {
+  Future<HeadlineNews?> getCategoryNews(String category) async {
+    final response = await _httpClient.get(getUri(
+        uri: 'top-headlines', extraParameters: {'category': category}));
+
+    var jsonData = jsonDecode(response.body);
+
+    if (jsonData['status'] == 'ok') {
+      if (response.body.isNotEmpty) {
+        return HeadlineNews.fromJson(jsonData);
+      } else {
+        log("Empty response!");
+      }
+    } else {
+      log("Error fetching data!");
+    }
+
     return null;
   }
 }

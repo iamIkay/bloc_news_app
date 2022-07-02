@@ -1,10 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'news_model.dart';
 
-part 'everything.g.dart';
+part 'headline_news.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class Everything {
+class HeadlineNews {
   String status;
   int totalResults;
   List<Story>? stories;
@@ -16,7 +16,7 @@ class Everything {
   String? publishedAt;
   String? content;
 
-  Everything(
+  HeadlineNews(
       {required this.status,
       required this.totalResults,
       this.stories,
@@ -28,6 +28,6 @@ class Everything {
       this.publishedAt,
       this.content});
 
-  factory Everything.fromJson(Map<String, dynamic> json) =>
-      _$EverythingFromJson(json);
+  factory HeadlineNews.fromJson(Map<String, dynamic> json) =>
+      _$HeadlineNewsFromJson(json);
 }

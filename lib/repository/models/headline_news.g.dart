@@ -1,4 +1,4 @@
-/* // GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'headline_news.dart';
 
@@ -6,7 +6,7 @@ part of 'headline_news.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-HeadlineNews _$HeadlineFromJson(Map<String, dynamic> json) => HeadlineNews(
+HeadlineNews _$HeadlineNewsFromJson(Map<String, dynamic> json) => HeadlineNews(
       status: json['status'] as String,
       totalResults: json['totalResults'] as int,
       stories: (json['articles'] as List<dynamic>?)
@@ -20,4 +20,4 @@ HeadlineNews _$HeadlineFromJson(Map<String, dynamic> json) => HeadlineNews(
       publishedAt: json['publishedAt'] as String?,
       content: json['content'] as String?,
     );
- */
+

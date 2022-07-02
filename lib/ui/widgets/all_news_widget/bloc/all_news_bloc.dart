@@ -1,27 +1,39 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app_bloc/repository/models/everything.dart';
+import 'package:news_app_bloc/repository/models/headline_news.dart';
 import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_event.dart';
 import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
 
 import '../../../../repository/news_repository.dart';
 
-class AllNewsBloc extends Bloc<AllNewsEvent, AllNewsState> {
-  AllNewsBloc({required this.newsRepository}) : super(AllNewsState()) {
-    on<GetStories>(_mapGetStoriesEventToState);
+class CategoryNewsBloc extends Bloc<CategoryNewsEvent, CategoryNewsState> {
+  CategoryNewsBloc({required this.newsRepository})
+      : super(const CategoryNewsState()) {
+    on<GetCategoryStory>(_mapGetStoriesEventToState);
   }
   final NewsRepository newsRepository;
 
   void _mapGetStoriesEventToState(
-      GetStories event, Emitter<AllNewsState> emit) async {
+      GetCategoryStory event, Emitter<CategoryNewsState> emit) async {
     try {
-      emit(state.copyWith(newStatus: AllNewsStatus.loading));
-      final response = await newsRepository.getEverything() as Everything;
+      emit(state.copyWith(newStatus: CategoryNewsStatus.loading, updateCategory: event.categoryId));
 
-      emit(state.copyWith(stories: response, newStatus: AllNewsStatus.complete));
+      final response = await newsRepository.getStoryByCategory(event.categoryId)
+          as HeadlineNews;
+
+      emit(state.copyWith(
+          stories: response,
+          newStatus: CategoryNewsStatus.complete,
+          updateCategory: event.categoryId
+          ));
     } catch (e) {
-      emit(state.copyWith(newStatus: AllNewsStatus.error));
+      emit(state.copyWith(newStatus: CategoryNewsStatus.error));
     }
   }
+
+  /*  void _mapSelectCategoryEventToState(
+      SelectCategoryEvent event, Emitter<CategoryNewsState> emit) {
+    emit(state.copyWith(
+      updateCategory: event.idSelected,
+    ));} */
+
 }

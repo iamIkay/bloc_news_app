@@ -1,5 +1,5 @@
-import 'package:news_app_bloc/repository/models/news_category.dart';
-import 'package:news_app_bloc/repository/models/news_model.dart';
+import 'package:news_app_bloc/repository/models/headline_news.dart';
+import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
 
 import 'service/news_service.dart';
 
@@ -10,8 +10,8 @@ class NewsRepository {
 
   getEverything() => service.getAllNews();
 
-  Future<List<Story>> getStoryByCategory(NewsCategory category) =>
-      service.getCategoryNews(category)!;
+  Future<HeadlineNews?> getStoryByCategory(String category) =>
+      service.getCategoryNews(category);
 
   
 }

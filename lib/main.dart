@@ -5,18 +5,16 @@ import 'package:news_app_bloc/repository/news_repository.dart';
 import 'package:news_app_bloc/repository/service/news_service.dart';
 import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_bloc.dart';
 import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_event.dart';
-import 'package:news_app_bloc/widgets/get_categories.dart';
-
+import 'package:news_app_bloc/ui/widgets/all_news_widget/bloc/all_news_state.dart';
 import 'ui/widgets/all_news.dart';
 import 'utils/app_bloc_observer.dart';
+import 'widgets/category_title.dart';
+import 'widgets/get_categories.dart';
 
 Future main() async {
   await dotenv.load(fileName: "assets/.env");
 
-  BlocOverrides.runZoned(
-    () => runApp(const MyApp()),
-    blocObserver: AppBlocObserver(),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -44,9 +42,9 @@ class HomePage extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (context) =>
-                  AllNewsBloc(newsRepository: context.read<NewsRepository>())
-                    ..add(GetStories()))
+              create: (context) => CategoryNewsBloc(
+                  newsRepository: context.read<NewsRepository>())
+                ..add(GetCategoryStory(categoryId: "general")))
         ],
         child: Scaffold(
           appBar: AppBar(
@@ -58,11 +56,14 @@ class HomePage extends StatelessWidget {
             child: SingleChildScrollView(
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
-                child: Column(children: const [
-                  GetCategories(),
-                  SizedBox(height: 30.0),
-                  AllNewsView(),
-                ]),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      GetCategories(),
+                      SizedBox(height: 25.0),
+                      CategoryTitle(),
+                      AllNewsView(),
+                    ]),
               ),
             ),
           )),
