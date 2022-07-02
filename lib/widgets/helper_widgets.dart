@@ -102,7 +102,7 @@ class BuildNewsCard extends StatelessWidget {
           const SizedBox(height: 5.0),
           Text(
             story!.title ?? '',
-            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 24.0),
+            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18.0),
             maxLines: 2,
           ),
           const SizedBox(height: 5.0),

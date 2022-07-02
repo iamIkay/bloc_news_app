@@ -11,7 +11,7 @@ class NewsDetail extends StatelessWidget {
     var dateFormatter = DateFormat('MM/dd/yyyy');
     var date = dateFormatter.format(story.publishedAt!);
     return Scaffold(
-      appBar: AppBar(title: const Text("Bloc News App")),
+      appBar: AppBar(title: const Text("BLOC NEWS")),
       body: ListView(
         physics: const ClampingScrollPhysics(),
         children: [

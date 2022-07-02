@@ -14,7 +14,7 @@ class CategoryTitle extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 20.0),
         child: Text(state.category!.toUpperCase(),
             style:
-                const TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700)),
+                const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700)),
       );
     }));
   }
