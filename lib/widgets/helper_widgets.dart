@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_bloc/ui/widgets/news_detail/news_detail_page.dart';
@@ -30,7 +32,7 @@ class BuildCategoryCard extends StatelessWidget {
         builder: (context, state) {
           return GestureDetector(
             onTap: () {
-              GetCategories.scrollController.animateTo((90.0 * index),
+              GetCategories.scrollController.animateTo((120.0 * index),
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.ease);
               if (!state) {
@@ -40,26 +42,21 @@ class BuildCategoryCard extends StatelessWidget {
               }
             },
             child:
-                //TODO: WORK ON THE ANIMATED BOX
                 AnimatedContainer(
               duration: const Duration(milliseconds: 100),
               height: state ? 120 : 70,
-              width: state ? 150 : 100,
-              margin: const EdgeInsets.only(left: 10.0),
+              width: state ? 150 : 130,
+              margin: const EdgeInsets.only(left: 5.0),
               child: Stack(
                 children: [
                   ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
                       child: Image.network(
                         category.image!,
-
-                        //TODO: WORK ON THE ANIMATED BOX
-                        // fit: BoxFit.fill,
-                        width: state ? 150 : 100,
+                        width: state ? 150 : 130,
                         height: state ? 120 : 70,
                       )),
                   Positioned.fill(
-                      //alignment: Alignment.bottomCenter,
                       child: Center(
                     child: Container(
                         margin: const EdgeInsets.only(bottom: 15.0),
@@ -68,7 +65,7 @@ class BuildCategoryCard extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
-                                fontSize: state ? 16.0 : 11.0))),
+                                fontSize: state ? 18.0 : 14.0))),
                   ))
                 ],
               ),
@@ -85,7 +82,8 @@ class BuildNewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDetail(story: story!))),
+      onTap: () => Navigator.push(context,
+          MaterialPageRoute(builder: (context) => NewsDetail(story: story!))),
       child: Container(
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.only(bottom: 25.0),
@@ -93,7 +91,7 @@ class BuildNewsCard extends StatelessWidget {
           ClipRRect(
             child: Image.network(
               story!.urlToImage ??
-                  'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+                  'https://www.nutraingredients-asia.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients-asia.com/china/apac-november-headline-news2/13069005-1-eng-GB/APAC-November-Headline-News.jpg',
               height: 200,
               fit: BoxFit.fill,
               width: MediaQuery.of(context).size.width,
@@ -107,7 +105,7 @@ class BuildNewsCard extends StatelessWidget {
           ),
           const SizedBox(height: 5.0),
           Text(
-            story!.description ?? story!.content!,
+            story!.description ?? story!.content ?? "",
             style: const TextStyle(fontSize: 14.0),
             maxLines: 2,
           ),
