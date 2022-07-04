@@ -17,11 +17,6 @@ class NewsService {
     final queryParameters = <String, dynamic>{
       'apiKey': dotenv.get('NEWS_API_KEY'),
       'country': 'us',
-      //'category': 'sports',
-      /*    'language': 'en',
-      'q': 'apple',
-      'from': '2022-06-29',
-      'to': '2022-06-29', */
     };
 
     if (extraParameters != null) {
@@ -49,8 +44,8 @@ class NewsService {
   }
 
   Future<HeadlineNews?> getCategoryNews(String category) async {
-    final response = await _httpClient.get(getUri(
-        uri: 'top-headlines', extraParameters: {'category': category}));
+    final response = await _httpClient.get(
+        getUri(uri: 'top-headlines', extraParameters: {'category': category}));
 
     var jsonData = jsonDecode(response.body);
 

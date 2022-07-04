@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import '../../../../repository/models/headline_news.dart';
 
-enum CategoryNewsStatus { initial, loading,complete, error }
+enum CategoryNewsStatus { initial, loading, complete, error }
 
 extension CategoryNewsX on CategoryNewsStatus {
   bool get isInitial => this == CategoryNewsStatus.initial;

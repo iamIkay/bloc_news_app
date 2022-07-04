@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:news_app_bloc/repository/models/headline_news.dart';
-
 import '../../../repository/models/news_model.dart';
 import '../../../widgets/helper_widgets.dart';
 

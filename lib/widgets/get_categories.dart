@@ -3,12 +3,10 @@ import '../repository/models/data.dart';
 import '../repository/models/news_category.dart';
 import 'helper_widgets.dart';
 
-
-
 class GetCategories extends StatelessWidget {
   const GetCategories({super.key});
 
-static final scrollController = ScrollController();
+  static final scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<NewsCategory>>(
@@ -19,14 +17,13 @@ static final scrollController = ScrollController();
               height: 120.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                physics: ClampingScrollPhysics(),
+                physics: const ClampingScrollPhysics(),
                 controller: scrollController,
                 itemCount: snapshot.data!.length,
                 itemBuilder: ((context, index) => BuildCategoryCard(
                     categoryId: snapshot.data![index].name!,
-                    category: snapshot.data![index], 
+                    category: snapshot.data![index],
                     index: index)),
-                    
               ),
             );
           }

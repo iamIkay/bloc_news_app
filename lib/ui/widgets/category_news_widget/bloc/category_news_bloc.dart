@@ -15,7 +15,9 @@ class CategoryNewsBloc extends Bloc<CategoryNewsEvent, CategoryNewsState> {
   void _mapGetStoriesEventToState(
       GetCategoryStory event, Emitter<CategoryNewsState> emit) async {
     try {
-      emit(state.copyWith(newStatus: CategoryNewsStatus.loading, updateCategory: event.categoryId));
+      emit(state.copyWith(
+          newStatus: CategoryNewsStatus.loading,
+          updateCategory: event.categoryId));
 
       final response = await newsRepository.getStoryByCategory(event.categoryId)
           as HeadlineNews;
@@ -23,17 +25,9 @@ class CategoryNewsBloc extends Bloc<CategoryNewsEvent, CategoryNewsState> {
       emit(state.copyWith(
           stories: response,
           newStatus: CategoryNewsStatus.complete,
-          updateCategory: event.categoryId
-          ));
+          updateCategory: event.categoryId));
     } catch (e) {
       emit(state.copyWith(newStatus: CategoryNewsStatus.error));
     }
   }
-
-  /*  void _mapSelectCategoryEventToState(
-      SelectCategoryEvent event, Emitter<CategoryNewsState> emit) {
-    emit(state.copyWith(
-      updateCategory: event.idSelected,
-    ));} */
-
 }

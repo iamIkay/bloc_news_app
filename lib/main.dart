@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:news_app_bloc/ui/widgets/home_page.dart';
 
-
 Future main() async {
   await dotenv.load(fileName: "assets/.env");
 

@@ -20,4 +20,3 @@ HeadlineNews _$HeadlineNewsFromJson(Map<String, dynamic> json) => HeadlineNews(
       publishedAt: json['publishedAt'] as String?,
       content: json['content'] as String?,
     );
-

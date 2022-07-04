@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:news_app_bloc/repository/models/news_model.dart';
 import 'package:intl/intl.dart';
@@ -10,8 +8,6 @@ class NewsDetail extends StatelessWidget {
   final Story story;
   @override
   Widget build(BuildContext context) {
-   
-
     var dateFormatter = DateFormat('MM/dd/yyyy');
     var date = dateFormatter.format(story.publishedAt!);
     return Scaffold(

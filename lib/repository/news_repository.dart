@@ -11,6 +11,4 @@ class NewsRepository {
 
   Future<HeadlineNews?> getStoryByCategory(String category) =>
       service.getCategoryNews(category);
-
-  
 }

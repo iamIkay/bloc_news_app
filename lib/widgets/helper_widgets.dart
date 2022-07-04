@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_bloc/ui/widgets/news_detail/news_detail_page.dart';
@@ -41,8 +39,7 @@ class BuildCategoryCard extends StatelessWidget {
                     .add(GetCategoryStory(categoryId: categoryId));
               }
             },
-            child:
-                AnimatedContainer(
+            child: AnimatedContainer(
               duration: const Duration(milliseconds: 100),
               height: state ? 120 : 70,
               width: state ? 150 : 130,

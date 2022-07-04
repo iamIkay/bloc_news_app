@@ -6,6 +6,4 @@ class NewsCategory {
   String? image;
 
   NewsCategory({this.name, this.image});
-
-  
 }
