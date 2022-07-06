@@ -16,13 +16,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
       create: (context) => NewsRepository(service: NewsService()),
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-              create: (context) => CategoryNewsBloc(
-                  newsRepository: context.read<NewsRepository>())
-                ..add(GetCategoryStory(categoryId: "general")))
-        ],
+      child: BlocProvider(
+        create: (context) =>
+            CategoryNewsBloc(newsRepository: context.read<NewsRepository>())
+              ..add(GetCategoryStory(categoryId: "general")),
         child: Scaffold(
           appBar: AppBar(
             title: const Text("BLOC NEWS"),

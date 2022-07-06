@@ -11,7 +11,7 @@ class CategoryNewsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoryNewsBloc, CategoryNewsState>(
         builder: ((context, state) {
-      return state.status!.isComplete
+      return state.status!.isSucess
           ? AllNewsSuccess(
               everything: state.allStories!, title: "${state.category}")
           : state.status!.isLoading

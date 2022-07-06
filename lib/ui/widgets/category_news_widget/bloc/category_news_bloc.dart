@@ -24,7 +24,7 @@ class CategoryNewsBloc extends Bloc<CategoryNewsEvent, CategoryNewsState> {
 
       emit(state.copyWith(
           stories: response,
-          newStatus: CategoryNewsStatus.complete,
+          newStatus: CategoryNewsStatus.success,
           updateCategory: event.categoryId));
     } catch (e) {
       emit(state.copyWith(newStatus: CategoryNewsStatus.error));

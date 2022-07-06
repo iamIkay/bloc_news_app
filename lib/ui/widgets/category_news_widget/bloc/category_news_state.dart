@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 import '../../../../repository/models/headline_news.dart';
 
-enum CategoryNewsStatus { initial, loading, complete, error }
+enum CategoryNewsStatus { initial, loading, success, error }
 
 extension CategoryNewsX on CategoryNewsStatus {
   bool get isInitial => this == CategoryNewsStatus.initial;
   bool get isLoading => this == CategoryNewsStatus.loading;
-  bool get isComplete => this == CategoryNewsStatus.complete;
+  bool get isSucess => this == CategoryNewsStatus.success;
   bool get isError => this == CategoryNewsStatus.error;
 }
 
