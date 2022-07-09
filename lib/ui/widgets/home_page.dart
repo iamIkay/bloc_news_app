@@ -34,7 +34,6 @@ class HomePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       GetCategories(),
-                      SizedBox(height: 25.0),
                       CategoryTitle(),
                       CategoryNewsPage(),
                     ]),

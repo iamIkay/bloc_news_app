@@ -5,9 +5,9 @@ import '../../../widgets/helper_widgets.dart';
 
 class AllNewsSuccess extends StatelessWidget {
   const AllNewsSuccess(
-      {required this.everything, required this.title, super.key});
+      {required this.headlineNews, required this.title, super.key});
 
-  final HeadlineNews everything;
+  final HeadlineNews headlineNews;
   final String title;
 
   @override
@@ -18,9 +18,9 @@ class AllNewsSuccess extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(bottom: 160.0),
             child: ListView.builder(
-                itemCount: everything.totalResults,
+                itemCount: headlineNews.stories!.length,
                 itemBuilder: ((context, index) {
-                  Story story = everything.stories![index];
+                  Story story = headlineNews.stories![index];
                   return BuildNewsCard(story: story);
                 })),
           ),

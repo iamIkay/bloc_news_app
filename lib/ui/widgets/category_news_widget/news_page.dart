@@ -13,7 +13,7 @@ class CategoryNewsPage extends StatelessWidget {
         builder: ((context, state) {
       return state.status!.isSucess
           ? AllNewsSuccess(
-              everything: state.allStories!, title: "${state.category}")
+              headlineNews: state.allStories!, title: "${state.category}")
           : state.status!.isLoading
               ? Container(
                   margin: const EdgeInsets.only(top: 200.0),

@@ -11,7 +11,7 @@ class CategoryTitle extends StatelessWidget {
     return BlocBuilder<CategoryNewsBloc, CategoryNewsState>(
         builder: ((context, state) {
       return Container(
-        margin: const EdgeInsets.only(bottom: 20.0),
+        margin: const EdgeInsets.only(bottom: 10.0),
         child: Text(state.category!.toUpperCase(),
             style:
                 const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w700)),
