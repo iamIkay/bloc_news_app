@@ -5,10 +5,9 @@ import '../../../widgets/helper_widgets.dart';
 
 class AllNewsSuccess extends StatelessWidget {
   const AllNewsSuccess(
-      {required this.headlineNews, required this.title, super.key});
+      {required this.headlineNews, super.key});
 
   final HeadlineNews headlineNews;
-  final String title;
 
   @override
   Widget build(BuildContext context) {

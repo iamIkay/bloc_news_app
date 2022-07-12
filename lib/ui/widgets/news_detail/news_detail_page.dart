@@ -19,9 +19,8 @@ class NewsDetail extends StatelessWidget {
             child: Image.network(
               story.urlToImage ??
                   "https://www.nutraingredients-asia.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/nutraingredients-asia.com/china/apac-november-headline-news2/13069005-1-eng-GB/APAC-November-Headline-News.jpg",
-              height: 300.0,
               width: MediaQuery.of(context).size.width,
-              fit: BoxFit.fill,
+              fit: BoxFit.contain,
             ),
           ),
           Padding(

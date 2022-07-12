@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_bloc/repository/models/headline_news.dart';
-
 import '../../../../repository/news_repository.dart';
 import 'category_news_event.dart';
 import 'category_news_state.dart';

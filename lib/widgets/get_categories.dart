@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../repository/models/data.dart';
+import '../repository/data.dart';
 import '../repository/models/news_category.dart';
 import 'helper_widgets.dart';
 

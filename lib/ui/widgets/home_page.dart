@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../repository/news_repository.dart';
 import '../../repository/service/news_service.dart';
 import '../../widgets/category_title.dart';
@@ -24,12 +23,11 @@ class HomePage extends StatelessWidget {
           appBar: AppBar(
             title: const Text("BLOC NEWS"),
           ),
-          body: SafeArea(
-              child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: SingleChildScrollView(
-              child: SizedBox(
+          body: SingleChildScrollView(
+            child: SafeArea(
+              child: Container(
                 height: MediaQuery.of(context).size.height,
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
@@ -39,7 +37,7 @@ class HomePage extends StatelessWidget {
                     ]),
               ),
             ),
-          )),
+          ),
         ),
       ),
     );

@@ -1,4 +1,4 @@
-import 'news_category.dart';
+import 'models/news_category.dart';
 
 Future<List<NewsCategory>> getCategories() {
   List<NewsCategory> myCategories = [];

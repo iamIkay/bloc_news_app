@@ -11,14 +11,14 @@ class CategoryNewsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoryNewsBloc, CategoryNewsState>(
         builder: ((context, state) {
-      return state.status!.isSucess
+      return state.status.isSucess
           ? AllNewsSuccess(
-              headlineNews: state.allStories!, title: "${state.category}")
-          : state.status!.isLoading
+              headlineNews: state.allStories!)
+          : state.status.isLoading
               ? Container(
                   margin: const EdgeInsets.only(top: 200.0),
                   child: const Center(child: CircularProgressIndicator()))
-              : state.status!.isError
+              : state.status.isError
                   ? Container(
                       margin: const EdgeInsets.only(top: 200.0),
                       child: const Center(child: Text("Error fetching News")))
